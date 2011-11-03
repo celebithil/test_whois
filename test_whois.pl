@@ -10,7 +10,7 @@ use DBI;
 my @domains = @ARGV;
 
 my $dbh = DBI->connect( 'DBI:mysql:whois', 'root', 'solid' ) or die "Connection Error: $DBI::errstr";
-$dbh->do('START TRANSACTION');
+$dbh->do( 'START TRANSACTION' );
 
 for my $domain_name (@domains) {
     $dbh->do( "INSERT INTO `result` (name, info) VALUES (?, ?)",
@@ -19,6 +19,6 @@ for my $domain_name (@domains) {
     or die "$DBI::errstr";
 }
 
-$dbh->do('COMMIT');
+$dbh->do( 'COMMIT' );
 $dbh->disconnect;
 
