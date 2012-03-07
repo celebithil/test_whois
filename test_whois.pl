@@ -17,7 +17,7 @@ for my $domain_name (@domains) {
     $dbh->do( "INSERT INTO `result` (name, info) VALUES (?, ?)",
         undef, $domain_name, whois ($domain_name)
     )
-    or die "$dbh->errstr;";
+        or die "$dbh->errstr;";
 }
 
 $dbh->do( 'COMMIT' );
