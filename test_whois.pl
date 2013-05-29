@@ -10,7 +10,7 @@ use DBI;
 my @domains = @ARGV;
 
 my $dbh = DBI->connect( 'DBI:mysql:whois', 'root', 'solid' ) 
-       or die "Connection Error: $dbh->errstr;";
+       or die "Connection Error: $DBI::errstr;;";
 $dbh->do( 'START TRANSACTION' );
 
 for my $domain_name (@domains) {
